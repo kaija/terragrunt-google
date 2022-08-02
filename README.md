@@ -1,8 +1,11 @@
 # terragrunt-google
 Terragrunt template for Google Cloud Platform
 
+```
+gcloud auth application-default login
+```
 
-
+```
 .
 ├── terragrunt.hcl          
 ├── penrose                 # This is project name. you can replace to your project app name
@@ -14,3 +17,4 @@ Terragrunt template for Google Cloud Platform
 │       ├── asia-east1      # The asia-east1 region data
 │       └── us-west1        # The us-west1 region data
 └── 
+```

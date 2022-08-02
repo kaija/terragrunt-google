@@ -29,12 +29,10 @@ EOF
 remote_state {
   backend = "gcs"
   config = {
+    project = "${local.gcp_project_id}"
+    location = "us"
     bucket  = "${local.project_name}-terraform-${local.environment}"
-    prefix  = "${path_relative_to_include()}"
-  }
-  generate = {
-    path      = "backend.tf"
-    if_exists = "overwrite_terragrunt"
+    prefix  = "${path_relative_to_include()}/terraform.tfstate"
   }
 }
 
