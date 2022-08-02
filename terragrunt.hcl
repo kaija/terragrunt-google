@@ -34,6 +34,10 @@ remote_state {
     bucket  = "${local.project_name}-terraform-${local.environment}"
     prefix  = "${path_relative_to_include()}/terraform.tfstate"
   }
+  generate = {
+    path      = "backend.tf"
+    if_exists = "overwrite_terragrunt"
+  }
 }
 
 inputs = merge(
