@@ -24,8 +24,8 @@ data "google_storage_bucket_object" "zip" {
 }
 
 resource "google_cloudfunctions_function" "function" {
-  provider = google-beta
-  name = "${var.project_name}-${var.environment}-api"
+  provider    = google-beta
+  name        = "${var.project_name}-${var.environment}-api"
   description = "${var.project_name} ${var.environment} api function"
   runtime     = "nodejs16"
 
