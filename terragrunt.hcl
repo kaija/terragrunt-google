@@ -4,6 +4,7 @@ locals {
   environment_vars = read_terragrunt_config(find_in_parent_folders("env.hcl"))
   project_name     = local.project_vars.locals.project_name
   gcp_region       = local.region_vars.locals.gcp_region
+  gcp_location     = local.region_vars.locals.gcp_location
   environment      = local.environment_vars.locals.environment
   gcp_project_id   = local.environment_vars.locals.project_id
 }
@@ -29,10 +30,10 @@ EOF
 remote_state {
   backend = "gcs"
   config = {
-    project = "${local.gcp_project_id}"
-    location = "us"
-    bucket  = "${local.project_name}-terraform-${local.environment}"
-    prefix  = "${path_relative_to_include()}/terraform.tfstate"
+    project  = "${local.gcp_project_id}"
+    location = "${local.gcp_location}"
+    bucket   = "${local.project_name}-terraform-${local.environment}"
+    prefix   = "${path_relative_to_include()}/terraform.tfstate"
   }
   generate = {
     path      = "backend.tf"
