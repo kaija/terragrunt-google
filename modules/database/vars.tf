@@ -23,3 +23,9 @@ variable "database_version" {
   type        = string
   default     = "POSTGRES_14"
 }
+
+variable "deletion_protection" {
+  description = "The database deletion protection"
+  type        = bool
+  default     = true
+}

@@ -16,5 +16,6 @@ include {
 }
 
 inputs = {
-  environment = local.env
+  environment         = local.env
+  deletion_protection = false
 }
